@@ -1,5 +1,5 @@
 import TActionHandler from './actionHandlers/TActionHandler';
-import State from './state/State';
+import StateManager from './StateManager';
 
 export default class ActionManager {
   actions: Record<string, TActionHandler>;
@@ -20,7 +20,7 @@ export default class ActionManager {
     });
   }
 
-  handle<T = any>(action: Action<T>, state: State) {
+  handle<T = any>(action: Action<T>, state: StateManager) {
     const { id } = action;
     const actionHandler = this.actions[id];
     actionHandler.handle(action, state);

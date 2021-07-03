@@ -1,22 +1,20 @@
 import CodeAh from './actionHandlers/CodeAh';
 import ActionManager from './ActionManager';
-import Player from './state/Player';
-import State from './state/State';
+import StateManager from './StateManager';
 
 type InitOptions = {
   name: string;
 };
 export default class BootcampTycoon {
   readonly _initOptions: InitOptions;
-  readonly state: State;
+  readonly state: StateManager;
   readonly actionManager: ActionManager;
 
   constructor(opts: InitOptions) {
     this._initOptions = opts;
 
     // initialize state
-    const player = new Player(opts.name);
-    this.state = new State(player);
+    this.state = new StateManager(opts.name);
 
     // create ActionManager
     this.actionManager = new ActionManager([CodeAh]);
