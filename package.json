@@ -14,6 +14,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
+    "tdd": "tsdx test --watch",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
@@ -26,7 +27,7 @@
     }
   },
   "prettier": {
-    "printWidth": 80,
+    "printWidth": 120,
     "semi": true,
     "singleQuote": true,
     "trailingComma": "es5"
@@ -46,10 +47,14 @@
   ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^5.0.1",
+    "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "husky": "^7.0.0",
     "size-limit": "^5.0.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.0",
     "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "tsyringe": "^4.5.0"
   }
 }

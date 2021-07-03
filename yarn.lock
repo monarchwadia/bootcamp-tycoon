@@ -1970,6 +1970,13 @@ babel-plugin-transform-rename-import@^2.3.0:
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-rename-import/-/babel-plugin-transform-rename-import-2.3.0.tgz#5d9d645f937b0ca5c26a24b2510a06277b6ffd9b"
   integrity sha512-dPgJoT57XC0PqSnLgl2FwNvxFrWlspatX2dkk7yjKQj5HHGw071vAcOf+hqW8ClqcBDMvEbm6mevn5yHAD8mlQ==
 
+babel-plugin-transform-typescript-metadata@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-typescript-metadata/-/babel-plugin-transform-typescript-metadata-0.3.2.tgz#7a327842d8c36ffe07ee1b5276434e56c297c9b7"
+  integrity sha512-mWEvCQTgXQf48yDqgN7CH50waTyYBeP2Lpqx4nNWab9sxEpdXVeKgfj1qYI2/TgUPQtNFZ85i3PemRtnXVYYJg==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+
 babel-preset-current-node-syntax@^0.1.2:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/babel-preset-current-node-syntax/-/babel-preset-current-node-syntax-0.1.4.tgz#826f1f8e7245ad534714ba001f84f7e906c3b615"
@@ -7918,6 +7925,13 @@ tsutils@^3.17.1:
   integrity sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==
   dependencies:
     tslib "^1.8.1"
+
+tsyringe@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/tsyringe/-/tsyringe-4.5.0.tgz#fc88cbab57deac47a2a2033bbca94c96d3c2702a"
+  integrity sha512-XvYgdUxkmGQfpCkKyr/ybJx71OLSnNec1SO0xdohMjaS2UOEyKi76YfKx92XUXgc1TocypHENg6y4wCyYyMKag==
+  dependencies:
+    tslib "^1.9.3"
 
 tty-browserify@0.0.0:
   version "0.0.0"
