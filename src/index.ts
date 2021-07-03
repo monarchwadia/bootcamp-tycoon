@@ -1,1 +1,1 @@
-export { default } from "./BootcampTycoon";
+export { default } from './BootcampTycoon';

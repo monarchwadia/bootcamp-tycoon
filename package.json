@@ -26,12 +26,6 @@
       "pre-commit": "tsdx lint"
     }
   },
-  "prettier": {
-    "printWidth": 120,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
   "name": "bootcamp-tycoon-core",
   "author": "Monarch Wadia",
   "module": "dist/bootcamp-tycoon-core.esm.js",
@@ -49,6 +43,7 @@
     "@size-limit/preset-small-lib": "^5.0.1",
     "babel-plugin-transform-typescript-metadata": "^0.3.2",
     "husky": "^7.0.0",
+    "prettier": "^2.3.2",
     "size-limit": "^5.0.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.0",
