@@ -21,6 +21,6 @@ export default class BootcampTycoon {
   }
 
   act<T = any>(action: Action<T>) {
-    this.actionManager.handle(action, this.state);
+    return this.actionManager.handle(action, this.state);
   }
 }

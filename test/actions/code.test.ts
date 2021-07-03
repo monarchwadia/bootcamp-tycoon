@@ -15,12 +15,4 @@ describe('Code Action', () => {
     game.act({ id: 'code' });
     expect(game.state.data.player.skills.coding).toBe(2);
   });
-
-  it('depletes energy', () => {
-    expect(game.state.data.player.resources.energy).toBe(10000);
-    game.act({ id: 'code' });
-    expect(game.state.data.player.resources.energy).toBe(9000);
-    game.act({ id: 'code' });
-    expect(game.state.data.player.resources.energy).toBe(8000);
-  });
 });

@@ -4,6 +4,7 @@ type Action<T = any> = {
 };
 
 type StateData = {
+  time: number;
   player: {
     name: string;
     skills: {
@@ -13,4 +14,10 @@ type StateData = {
       energy: number;
     };
   };
+};
+
+type ActionFeedback = {
+  code?: 'exhausted';
+  message: string;
+  timestamp: number;
 };

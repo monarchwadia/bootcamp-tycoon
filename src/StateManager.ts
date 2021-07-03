@@ -3,6 +3,7 @@ export default class StateManager {
 
   constructor(name: string) {
     this.data = {
+      time: Date.now(),
       player: {
         name,
         resources: {
