@@ -9,5 +9,7 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {}
+  "scripts": {
+    "tdd": "yarn workspaces run tdd"
+  }
 }
