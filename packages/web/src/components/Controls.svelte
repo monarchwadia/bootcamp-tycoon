@@ -12,7 +12,9 @@ const actions = core.getAvailableActions();
     <h1>Actions</h1>
 
     {#each actions as action }
-      <div>{action}</div>
+      <button onclick={() => core.act({
+        id: action
+      })}>{action}</button>
     {/each}
   </div>
 </div>
