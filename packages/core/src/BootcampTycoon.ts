@@ -1,16 +1,17 @@
+import { TAction } from './types/action';
 import CodeAh from './actionHandlers/CodeAh';
 import ActionManager from './ActionManager';
 import StateManager from './StateManager';
 
-type InitOptions = {
+type TInitOptions = {
   name: string;
 };
 export default class BootcampTycoon {
-  readonly _initOptions: InitOptions;
+  readonly _initOptions: TInitOptions;
   readonly state: StateManager;
   readonly actionManager: ActionManager;
 
-  constructor(opts: InitOptions) {
+  constructor(opts: TInitOptions) {
     this._initOptions = opts;
 
     // initialize state
@@ -20,7 +21,7 @@ export default class BootcampTycoon {
     this.actionManager = new ActionManager([CodeAh]);
   }
 
-  act<T = any>(action: Action<T>) {
+  act<T = any>(action: TAction<T>) {
     return this.actionManager.handle(action, this.state);
   }
 }

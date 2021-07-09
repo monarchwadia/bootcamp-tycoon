@@ -1,3 +1,4 @@
+import { TAction } from '../types/action';
 import StateManager from '../StateManager';
 
 type TActionHandler<T = any> = {
@@ -6,7 +7,7 @@ type TActionHandler<T = any> = {
     minutes: number;
   };
   readonly id: string;
-  handle(action: Action<T>, state: StateManager): string;
+  handle(action: TAction<T>, state: StateManager): string;
 };
 
 export default TActionHandler;

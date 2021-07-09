@@ -1,3 +1,4 @@
+import { TAction, TActionFeedback } from './types/action';
 import TActionHandler from './actionHandlers/TActionHandler';
 import StateManager from './StateManager';
 
@@ -23,7 +24,7 @@ export default class ActionManager {
     this.actions[id] = action;
   }
 
-  handle<T = any>(action: Action<T>, state: StateManager): ActionFeedback {
+  handle<T = any>(action: TAction<T>, state: StateManager): TActionFeedback {
     const { id } = action;
     const actionHandler = this.actions[id];
     const timestamp = state.data.time;

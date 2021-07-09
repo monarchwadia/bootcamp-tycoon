@@ -1,5 +1,7 @@
+import { TStateData } from './types/state';
+
 export default class StateManager {
-  readonly data: StateData;
+  readonly data: TStateData;
 
   constructor(name: string) {
     this.data = {
