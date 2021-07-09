@@ -1,13 +1,29 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  {{ game }}
 </template>
 
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script lang="ts">
+import { defineComponent } from "vue";
+import HelloWorld from "./components/HelloWorld.vue";
+import BootcampTycoon from "../../core/src/index";
 
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
+const game = new BootcampTycoon({
+  name: "Monarch Wadia",
+});
+
+export default defineComponent({
+  name: "App",
+  components: {
+    HelloWorld,
+  },
+  data() {
+    return {
+      game,
+    };
+  },
+});
 </script>
 
 <style>

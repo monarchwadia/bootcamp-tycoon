@@ -13,6 +13,7 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
+    "dev": "echo 'dev command is disabled in core.'",
     "test": "tsdx test",
     "tdd": "tsdx test --watch",
     "lint": "tsdx lint",
