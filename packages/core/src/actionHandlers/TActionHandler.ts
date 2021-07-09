@@ -6,6 +6,7 @@ type TActionHandler<T = any> = {
     energy: number;
     minutes: number;
   };
+  isEnabled?(state: StateManager): boolean;
   readonly id: string;
   handle(action: TAction<T>, state: StateManager): string;
 };

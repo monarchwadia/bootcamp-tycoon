@@ -24,10 +24,23 @@ export default class ActionManager {
     this.actions[id] = action;
   }
 
+  registerActionHandlers(...actions: TActionHandler[]) {
+    actions.forEach((action) => this.registerActionHandler(action));
+  }
+
   handle<T = any>(action: TAction<T>, state: StateManager): TActionFeedback {
     const { id } = action;
     const actionHandler = this.actions[id];
     const timestamp = state.data.time;
+
+    // don't allow the action if it is not available.
+    if (actionHandler.isEnabled && !actionHandler.isEnabled(state)) {
+      return {
+        code: 'disabled',
+        message: 'This action is disabled.',
+        timestamp,
+      };
+    }
 
     // don't allow the action if the cost is greater than the available energy
     if (actionHandler.cost.energy > state.data.player.resources.energy) {

@@ -4,7 +4,7 @@ export type TAction<T = any> = {
 };
 
 export type TActionFeedback = {
-  code?: 'exhausted';
+  code?: 'exhausted' | 'disabled';
   message: string;
   timestamp: number;
 };

@@ -1,5 +1,5 @@
 {
-  "name": "bootcamp-tycoon-core",
+  "name": "@bootcamp-tycoon/root",
   "version": "0.0.1",
   "private": true,
   "main": "index.js",
@@ -10,7 +10,6 @@
     "packages/*"
   ],
   "scripts": {
-    "tdd": "yarn workspaces run tdd",
     "dev": "yarn workspaces run dev"
   }
 }

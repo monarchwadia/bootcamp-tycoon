@@ -11,9 +11,8 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
+    "dev": "echo 'Disabled'",
     "build": "tsdx build",
-    "dev": "echo 'dev command is disabled in core.'",
     "test": "tsdx test",
     "tdd": "tsdx test --watch",
     "lint": "tsdx lint",
@@ -27,7 +26,7 @@
       "pre-commit": "tsdx lint"
     }
   },
-  "name": "bootcamp-tycoon-core",
+  "name": "@bootcamp-tycoon/core",
   "author": "Monarch Wadia",
   "module": "dist/bootcamp-tycoon-core.esm.js",
   "size-limit": [

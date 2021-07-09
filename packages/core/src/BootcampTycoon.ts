@@ -24,4 +24,8 @@ export default class BootcampTycoon {
   act<T = any>(action: TAction<T>) {
     return this.actionManager.handle(action, this.state);
   }
+
+  getAvailableActions() {
+    return Object.keys(this.actionManager.actions);
+  }
 }
