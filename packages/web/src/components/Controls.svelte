@@ -1,4 +1,5 @@
 <script lang="ts">
+import Button from "./atoms/Button.svelte";
 import type  { BootcampTycoon } from "../../../core/src";
 
 
@@ -14,19 +15,19 @@ let arr = [];
   <div>
     <h1>Actions</h1>
 
-    <button on:click={() => {
+    <Button onclick={() => {
       console.log(arr);
       arr = [...arr, Math.random()];
-    }}>Add something</button>
+    }}>Add something</Button>
 
     {#each arr as a}
       <div>{a}</div>
     {/each}
 
     {#each actions as action }
-      <button on:click={() => core.act({id: action})}>
+      <Button onclick={() => core.act({id: action})}>
         {action}
-      </button>
+      </Button>
     {/each}
   </div>
 </div>
