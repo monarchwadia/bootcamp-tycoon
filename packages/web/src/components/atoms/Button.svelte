@@ -1,10 +1,4 @@
-<script lang="ts">
-  export let onclick: svelte.JSX.MouseEventHandler<HTMLButtonElement>;
-</script>
-
-<button on:click={onclick}>
-  <slot></slot>
-</button>
+<button on:click><slot></slot></button>
 
 <style scoped>
   button {

@@ -10,3 +10,14 @@ export type TStateData = {
     };
   };
 };
+
+export type TStateStats = {
+  name: string;
+  resources: {
+    energy: number;
+  };
+  skills: {
+    coding: number;
+  };
+  time: number;
+};

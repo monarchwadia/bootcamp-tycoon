@@ -1,21 +1,18 @@
 <script lang="ts">
-import type { BootcampTycoon } from "../../../core/src";
+import type { TStateStats } from "../../../core/src/types/state";
 
 
-export let core: BootcampTycoon;
-
-const {name, resources, skills, time } = core.getStats();
+export let stats: TStateStats;
 
 </script>
 
 <div>
-  Controls
   <div>
     <h1>Stats</h1>
 
-    <div>Name: {name}</div>
-    <div>Energy: {resources.energy}</div>
-    <div>Coding Skill: {skills.coding}</div>
-    <div>Time: {time}</div>
+    <div>Name: {stats.name}</div>
+    <div>Energy: {stats.resources.energy}</div>
+    <div>Coding Skill: {stats.skills.coding}</div>
+    <div>Time: {stats.time}</div>
   </div>
 </div>
