@@ -1,11 +1,14 @@
 import { TAction, TActionFeedback } from './types/action';
 import TActionHandler from './actionHandlers/TActionHandler';
 import StateManager from './StateManager';
+import 'reflect-metadata';
+import { inject, injectable } from 'tsyringe';
 
+@injectable()
 export default class ActionManager {
   actions: Record<string, TActionHandler>;
 
-  constructor(actionsRegistry: TActionHandler[]) {
+  constructor(@inject('DefaultActions') actionsRegistry: TActionHandler[]) {
     this.actions = {};
 
     actionsRegistry.forEach((action) => {

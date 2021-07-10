@@ -1,5 +1,4 @@
 import { TAction } from './types/action';
-import CodeAh from './actionHandlers/CodeAh';
 import ActionManager from './ActionManager';
 import StateManager from './StateManager';
 import 'reflect-metadata';
@@ -8,17 +7,7 @@ import { InitOptions } from './TInitOptions';
 
 @injectable()
 export default class BootcampTycoon {
-  readonly opts: InitOptions;
-  readonly state: StateManager;
-  readonly actionManager: ActionManager;
-
-  constructor(opts: InitOptions, stateManager: StateManager) {
-    this.opts = opts;
-    this.state = stateManager;
-
-    // create ActionManager
-    this.actionManager = new ActionManager([CodeAh]);
-  }
+  constructor(readonly opts: InitOptions, readonly state: StateManager, readonly actionManager: ActionManager) {}
 
   act<T = any>(action: TAction<T>) {
     return this.actionManager.handle(action, this.state);
