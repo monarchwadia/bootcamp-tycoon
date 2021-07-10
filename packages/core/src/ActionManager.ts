@@ -59,6 +59,7 @@ export default class ActionManager {
     state.data.time += actionHandler.cost.minutes * 60 * 1000;
 
     const message = actionHandler.handle(action, state);
+
     return {
       message,
       timestamp,
