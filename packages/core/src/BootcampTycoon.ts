@@ -1,13 +1,17 @@
+import 'reflect-metadata';
 import { TAction } from './types/action';
 import ActionManager from './ActionManager';
 import StateManager from './StateManager';
-import 'reflect-metadata';
 import { InitOptions } from './InitOptions';
-import { injectable } from 'tsyringe';
+import { inject, injectable } from 'inversify';
 
 @injectable()
 export default class BootcampTycoon {
-  constructor(readonly opts: InitOptions, readonly state: StateManager, readonly actionManager: ActionManager) {}
+  constructor(
+    @inject(StateManager) readonly state: StateManager,
+    @inject(ActionManager) readonly actionManager: ActionManager,
+    @inject(InitOptions) readonly opts: InitOptions
+  ) {}
 
   act<T = any>(action: TAction<T>) {
     return this.actionManager.handle(action, this.state);

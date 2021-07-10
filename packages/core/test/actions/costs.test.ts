@@ -10,6 +10,9 @@ describe('Action Costs', () => {
       minutes: 30,
     },
     handle: () => 'Test Action',
+    isEnabled() {
+      return true;
+    },
   };
 
   let game: BootcampTycoon;

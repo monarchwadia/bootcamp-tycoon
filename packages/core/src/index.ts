@@ -1,27 +1,38 @@
 import 'reflect-metadata';
 
-import { container } from 'tsyringe';
+import { Container } from 'inversify';
 import BootcampTycoon from './BootcampTycoon';
 import { InitOptions } from './InitOptions';
 import StateManager from './StateManager';
 import ActionManager from './ActionManager';
-import TActionHandler from './actionHandlers/TActionHandler';
-import actionHandlers from './actionHandlers';
+import { __createBinding } from 'tslib';
+
+import CodeAh from './actionHandlers/CodeAh';
 
 const startBootcampTycoon = (opts: InitOptions) => {
-  const c = container.createChildContainer();
+  const c = new Container();
 
   // classes
-  c.register(BootcampTycoon, { useClass: BootcampTycoon });
+  c.bind(BootcampTycoon).to(BootcampTycoon);
+  c.bind(StateManager).to(StateManager);
+  c.bind(ActionManager).to(ActionManager);
 
-  // options
-  c.register(InitOptions, { useValue: opts });
+  c.bind(InitOptions).toConstantValue(opts);
 
-  c.register(StateManager, { useClass: StateManager });
-  c.register(ActionManager, { useClass: ActionManager });
+  c.bind(CodeAh).to(CodeAh);
 
-  // actions
-  c.register<TActionHandler[]>('DefaultActions', { useValue: actionHandlers });
+  // actionHandlers.forEach((ah) => {
+  //   c.bind('ActionHandler').to(ah);
+  // });
+
+  // // options
+  // c.register(InitOptions, { useValue: opts });
+
+  // c.register(StateManager, { useClass: StateManager });
+  // c.register(ActionManager, { useClass: ActionManager });
+
+  // // actions
+  // c.register<TActionHandler[]>('DefaultActions', { useValue: actionHandlers });
 
   return c.resolve(BootcampTycoon);
 };

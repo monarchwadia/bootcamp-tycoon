@@ -5,25 +5,25 @@ import { defaultGame } from '../helpers';
 
 // helper
 const buildDef = (game: BootcampTycoon, id: string, isEnabled?: (state: StateManager) => boolean) => {
-  const def: TActionHandler & { wasCalled: boolean } = {
-    wasCalled: false,
-    id,
-    cost: {
-      energy: 100,
-      minutes: 30,
-    },
+  class AhDef extends TActionHandler {
+    wasCalled: boolean = false;
+    id = id;
+    cost = {
+      energy: 0,
+      minutes: 0,
+    };
     handle() {
       this.wasCalled = true;
       return 'Called';
-    },
-  };
+    }
 
-  if (isEnabled !== undefined) {
-    def.isEnabled = isEnabled;
+    isEnabled(state: StateManager) {
+      return isEnabled ? isEnabled(state) : true;
+    }
   }
 
+  const def = new AhDef();
   game.actionManager.registerActionHandlers(def);
-
   return def;
 };
 

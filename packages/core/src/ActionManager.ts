@@ -1,22 +1,20 @@
 import { TAction, TActionFeedback } from './types/action';
-import TActionHandler from './actionHandlers/TActionHandler';
+import ActionHandler from './actionHandlers/TActionHandler';
 import StateManager from './StateManager';
-import 'reflect-metadata';
-import { inject, injectable } from 'tsyringe';
+import { injectable, inject } from 'inversify';
+import CodeAh from './actionHandlers/CodeAh';
 
 @injectable()
 export default class ActionManager {
-  actions: Record<string, TActionHandler>;
+  actions: Record<string, ActionHandler>;
 
-  constructor(@inject('DefaultActions') actionsRegistry: TActionHandler[]) {
+  // constructor(@multiInject('ActionHandler') actionsRegistry: ActionHandler[]) {
+  constructor(@inject(CodeAh) codeAh: CodeAh) {
     this.actions = {};
-
-    actionsRegistry.forEach((action) => {
-      this.registerActionHandler(action);
-    });
+    this.registerActionHandlers(codeAh);
   }
 
-  registerActionHandler(action: TActionHandler) {
+  registerActionHandler(action: ActionHandler) {
     const { id } = action;
 
     // don't allow duplicate actions
@@ -27,7 +25,7 @@ export default class ActionManager {
     this.actions[id] = action;
   }
 
-  registerActionHandlers(...actions: TActionHandler[]) {
+  registerActionHandlers(...actions: ActionHandler[]) {
     actions.forEach((action) => this.registerActionHandler(action));
   }
 

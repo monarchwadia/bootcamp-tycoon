@@ -1,5 +1,4 @@
-import 'reflect-metadata';
-import { injectable } from 'tsyringe';
+import { injectable, inject } from 'inversify';
 import { InitOptions } from './InitOptions';
 import { TStateData } from './types/state';
 import stateReportBuilder from './utils/stateReportBuilder';
@@ -8,7 +7,7 @@ import stateReportBuilder from './utils/stateReportBuilder';
 export default class StateManager {
   readonly data: TStateData;
 
-  constructor(opts: InitOptions) {
+  constructor(@inject(InitOptions) opts: InitOptions) {
     this.data = {
       time: Date.now(),
       player: {
