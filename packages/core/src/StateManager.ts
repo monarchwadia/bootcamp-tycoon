@@ -1,4 +1,5 @@
 import { TStateData } from './types/state';
+import stateReportBuilder from './utils/stateReportBuilder';
 
 export default class StateManager {
   readonly data: TStateData;
@@ -16,6 +17,10 @@ export default class StateManager {
         },
       },
     };
+  }
+
+  getReport() {
+    return stateReportBuilder(this.data);
   }
 
   toJSON() {

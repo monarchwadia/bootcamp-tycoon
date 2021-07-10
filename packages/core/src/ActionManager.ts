@@ -63,4 +63,8 @@ export default class ActionManager {
       timestamp,
     };
   }
+
+  getAvailableActions() {
+    return Object.keys(this.actions);
+  }
 }
