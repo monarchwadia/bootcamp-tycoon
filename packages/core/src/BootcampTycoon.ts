@@ -2,20 +2,19 @@ import { TAction } from './types/action';
 import CodeAh from './actionHandlers/CodeAh';
 import ActionManager from './ActionManager';
 import StateManager from './StateManager';
+import 'reflect-metadata';
+import { injectable } from 'tsyringe';
+import { InitOptions } from './TInitOptions';
 
-type TInitOptions = {
-  name: string;
-};
+@injectable()
 export default class BootcampTycoon {
-  readonly _initOptions: TInitOptions;
+  readonly opts: InitOptions;
   readonly state: StateManager;
   readonly actionManager: ActionManager;
 
-  constructor(opts: TInitOptions) {
-    this._initOptions = opts;
-
-    // initialize state
-    this.state = new StateManager(opts.name);
+  constructor(opts: InitOptions, stateManager: StateManager) {
+    this.opts = opts;
+    this.state = stateManager;
 
     // create ActionManager
     this.actionManager = new ActionManager([CodeAh]);

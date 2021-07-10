@@ -1,7 +1,6 @@
-import BootcampTycoon from '../src';
+import BootcampTycoon, { startBootcampTycoon } from '../src';
+import { InitOptions } from '../src/TInitOptions';
 
-export const defaultGame = () => {
-  return new BootcampTycoon({
-    name: 'Default User',
-  });
+export const defaultGame = (): BootcampTycoon => {
+  return startBootcampTycoon(new InitOptions('Default User'));
 };
