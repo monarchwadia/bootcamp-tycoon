@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { injectable } from 'tsyringe';
-import { InitOptions } from './TInitOptions';
+import { InitOptions } from './InitOptions';
 import { TStateData } from './types/state';
 import stateReportBuilder from './utils/stateReportBuilder';
 
@@ -12,7 +12,7 @@ export default class StateManager {
     this.data = {
       time: Date.now(),
       player: {
-        name: opts.name,
+        name: opts.fullName,
         resources: {
           energy: 10000,
         },

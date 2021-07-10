@@ -1,8 +1,8 @@
 <script lang="ts">
   import Controls from "./components/Controls.svelte";
-  import BootcampTycoon from "../../core/src/index";
+  import startBootcampTycoon from "../../core/src/index";
   
-  const core = new BootcampTycoon({
+  const core = startBootcampTycoon({
     name: "Monarch Wadia"
   });
 </script>

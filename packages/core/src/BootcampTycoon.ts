@@ -2,8 +2,8 @@ import { TAction } from './types/action';
 import ActionManager from './ActionManager';
 import StateManager from './StateManager';
 import 'reflect-metadata';
+import { InitOptions } from './InitOptions';
 import { injectable } from 'tsyringe';
-import { InitOptions } from './TInitOptions';
 
 @injectable()
 export default class BootcampTycoon {

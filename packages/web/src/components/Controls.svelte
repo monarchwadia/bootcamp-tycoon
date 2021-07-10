@@ -1,5 +1,5 @@
 <script lang="ts">
-import type BootcampTycoon from "../../../core/src";
+import type  { BootcampTycoon } from "../../../core/src";
 
 
 export let core: BootcampTycoon;

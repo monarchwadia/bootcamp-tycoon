@@ -1,4 +1,4 @@
-import BootcampTycoon from '../../src';
+import { BootcampTycoon } from '../../src';
 import { defaultGame } from '../helpers';
 
 describe('Code Action', () => {

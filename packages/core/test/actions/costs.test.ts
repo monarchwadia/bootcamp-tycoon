@@ -1,4 +1,4 @@
-import BootcampTycoon from '../../src';
+import { BootcampTycoon } from '../../src';
 import TActionHandler from '../../src/actionHandlers/TActionHandler';
 import { defaultGame } from '../helpers';
 

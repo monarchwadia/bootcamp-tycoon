@@ -1,22 +1,22 @@
-export { default } from './BootcampTycoon';
 import 'reflect-metadata';
 
 import { container } from 'tsyringe';
 import BootcampTycoon from './BootcampTycoon';
-import { InitOptions } from './TInitOptions';
+import { InitOptions } from './InitOptions';
 import StateManager from './StateManager';
 import ActionManager from './ActionManager';
 import TActionHandler from './actionHandlers/TActionHandler';
 import actionHandlers from './actionHandlers';
 
-export const startBootcampTycoon = (opts: InitOptions) => {
+const startBootcampTycoon = (opts: InitOptions) => {
   const c = container.createChildContainer();
+
+  // classes
+  c.register(BootcampTycoon, { useClass: BootcampTycoon });
 
   // options
   c.register(InitOptions, { useValue: opts });
 
-  // classes
-  c.register(BootcampTycoon, { useClass: BootcampTycoon });
   c.register(StateManager, { useClass: StateManager });
   c.register(ActionManager, { useClass: ActionManager });
 
@@ -25,3 +25,6 @@ export const startBootcampTycoon = (opts: InitOptions) => {
 
   return c.resolve(BootcampTycoon);
 };
+
+export default startBootcampTycoon;
+export { BootcampTycoon };
