@@ -6,7 +6,7 @@ describe('startBootcampTycoon', () => {
     const game = startBootcampTycoon({
       fullName: fullName,
     });
-    expect(game.state.data.player.name).toBe(fullName);
+    expect(game.state.data.player.name).toStrictEqual(fullName);
   });
 
   it('contains the code action', () => {

@@ -6,7 +6,10 @@ export type TStateData = {
       coding: number;
     };
     resources: {
-      energy: number;
+      energy: {
+        curr: number;
+        max: number;
+      };
     };
   };
 };

@@ -13,7 +13,10 @@ export default class StateManager {
       player: {
         name: opts.fullName,
         resources: {
-          energy: 10000,
+          energy: {
+            curr: 10000,
+            max: 10000,
+          },
         },
         skills: {
           coding: 0,

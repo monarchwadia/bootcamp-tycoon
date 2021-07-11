@@ -9,10 +9,10 @@ describe('Code Action', () => {
   });
 
   it('increases coding skill', () => {
-    expect(game.state.data.player.skills.coding).toBe(0);
+    expect(game.state.data.player.skills.coding).toStrictEqual(0);
     game.act({ id: 'code' });
-    expect(game.state.data.player.skills.coding).toBe(1);
+    expect(game.state.data.player.skills.coding).toStrictEqual(1);
     game.act({ id: 'code' });
-    expect(game.state.data.player.skills.coding).toBe(2);
+    expect(game.state.data.player.skills.coding).toStrictEqual(2);
   });
 });

@@ -23,33 +23,33 @@ describe('Action Costs', () => {
   });
 
   it('depletes energy based on the cost property', () => {
-    const initialEnergy = game.state.data.player.resources.energy;
+    const initialEnergy = game.state.data.player.resources.energy.curr;
 
-    expect(game.state.data.player.resources.energy).toBe(initialEnergy);
+    expect(game.state.data.player.resources.energy.curr).toStrictEqual(initialEnergy);
     game.act({ id: 'testAction' });
-    expect(game.state.data.player.resources.energy).toBe(initialEnergy - ahDef.cost.energy);
+    expect(game.state.data.player.resources.energy.curr).toStrictEqual(initialEnergy - ahDef.cost.energy);
     game.act({ id: 'testAction' });
-    expect(game.state.data.player.resources.energy).toBe(initialEnergy - ahDef.cost.energy * 2);
+    expect(game.state.data.player.resources.energy.curr).toStrictEqual(initialEnergy - ahDef.cost.energy * 2);
   });
 
   it('does not allow the action if the cost is higher than available energy', () => {
     const initialEnergy = 99;
     const initialTime = game.state.data.time;
 
-    game.state.data.player.resources.energy = initialEnergy;
+    game.state.data.player.resources.energy.curr = initialEnergy;
 
-    expect(game.state.data.player.resources.energy).toBe(initialEnergy);
+    expect(game.state.data.player.resources.energy.curr).toStrictEqual(initialEnergy);
     const response1 = game.act({ id: 'testAction' });
     expect(response1.code).toStrictEqual('exhausted');
     expect(response1.timestamp).toStrictEqual(initialTime);
     expect(game.state.data.time).toStrictEqual(initialTime);
-    expect(game.state.data.player.resources.energy).toBe(initialEnergy);
+    expect(game.state.data.player.resources.energy.curr).toStrictEqual(initialEnergy);
 
     const response2 = game.act({ id: 'testAction' });
     expect(response2.code).toStrictEqual('exhausted');
     expect(response2.timestamp).toStrictEqual(initialTime);
     expect(game.state.data.time).toStrictEqual(initialTime);
-    expect(game.state.data.player.resources.energy).toBe(initialEnergy);
+    expect(game.state.data.player.resources.energy.curr).toStrictEqual(initialEnergy);
   });
 
   it('increments time', () => {
@@ -58,13 +58,13 @@ describe('Action Costs', () => {
     {
       game.act({ id: 'testAction' });
       const expectedDiff = ahDef.cost.minutes * 60 * 1000;
-      expect(game.state.data.time).toBe(initialTime + expectedDiff);
+      expect(game.state.data.time).toStrictEqual(initialTime + expectedDiff);
     }
 
     {
       game.act({ id: 'testAction' });
       const expectedDiff = 2 * ahDef.cost.minutes * 60 * 1000;
-      expect(game.state.data.time).toBe(initialTime + expectedDiff);
+      expect(game.state.data.time).toStrictEqual(initialTime + expectedDiff);
     }
   });
 
@@ -72,10 +72,10 @@ describe('Action Costs', () => {
     const initialTime = game.state.data.time;
 
     const response1 = game.act({ id: 'testAction' });
-    expect(response1.timestamp).toBe(initialTime);
+    expect(response1.timestamp).toStrictEqual(initialTime);
 
     const response2 = game.act({ id: 'testAction' });
     const expectedDiff = ahDef.cost.minutes * 60 * 1000;
-    expect(response2.timestamp).toBe(initialTime + expectedDiff);
+    expect(response2.timestamp).toStrictEqual(initialTime + expectedDiff);
   });
 });

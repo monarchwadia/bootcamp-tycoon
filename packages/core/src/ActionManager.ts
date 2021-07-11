@@ -42,7 +42,7 @@ export default class ActionManager {
     }
 
     // don't allow the action if the cost is greater than the available energy
-    if (actionHandler.cost.energy > state.data.player.resources.energy) {
+    if (actionHandler.cost.energy > state.data.player.resources.energy.curr) {
       return {
         code: 'exhausted',
         message: "You don't have enough energy to complete this task.",
@@ -51,7 +51,7 @@ export default class ActionManager {
     }
 
     // deduct the energy
-    state.data.player.resources.energy -= actionHandler.cost.energy;
+    state.data.player.resources.energy.curr -= actionHandler.cost.energy;
 
     // increment time
     state.data.time += actionHandler.cost.minutes * 60 * 1000;
