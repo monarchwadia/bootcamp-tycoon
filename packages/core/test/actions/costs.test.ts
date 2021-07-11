@@ -1,9 +1,9 @@
 import { BootcampTycoon } from '../../src';
-import TActionHandler from '../../src/actionHandlers/TActionHandler';
+import ActionHandler from '../../src/actionHandlers/ActionHandler';
 import { defaultGame } from '../helpers';
 
 describe('Action Costs', () => {
-  const ahDef: TActionHandler = {
+  const ahDef: ActionHandler = {
     id: 'testAction',
     cost: {
       energy: 100,

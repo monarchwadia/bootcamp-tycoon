@@ -1,17 +1,15 @@
 import { TAction, TActionFeedback } from './types/action';
-import ActionHandler from './actionHandlers/TActionHandler';
+import ActionHandler from './actionHandlers/ActionHandler';
 import StateManager from './StateManager';
-import { injectable, inject } from 'inversify';
-import CodeAh from './actionHandlers/CodeAh';
+import { injectable, multiInject } from 'inversify';
 
 @injectable()
 export default class ActionManager {
   actions: Record<string, ActionHandler>;
 
-  // constructor(@multiInject('ActionHandler') actionsRegistry: ActionHandler[]) {
-  constructor(@inject(CodeAh) codeAh: CodeAh) {
+  constructor(@multiInject('ActionHandlers') actionsRegistry: ActionHandler[]) {
     this.actions = {};
-    this.registerActionHandlers(codeAh);
+    this.registerActionHandlers(...actionsRegistry);
   }
 
   registerActionHandler(action: ActionHandler) {

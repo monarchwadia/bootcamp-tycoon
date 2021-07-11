@@ -1,7 +1,7 @@
 import { injectable } from 'inversify';
 import StateManager from '../StateManager';
 import { TAction } from '../types/action';
-import ActionHandler from './TActionHandler';
+import ActionHandler from './ActionHandler';
 
 @injectable()
 class CodeAh extends ActionHandler<never> {

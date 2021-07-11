@@ -1,5 +1,5 @@
 import { BootcampTycoon } from '../../src';
-import TActionHandler from '../../src/actionHandlers/TActionHandler';
+import TActionHandler from '../../src/actionHandlers/ActionHandler';
 import StateManager from '../../src/StateManager';
 import { defaultGame } from '../helpers';
 

@@ -10,6 +10,7 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "yarn workspaces run dev"
+    "core": "cd packages/core && yarn tdd",
+    "web": "cd packages/web && yarn dev"
   }
 }
