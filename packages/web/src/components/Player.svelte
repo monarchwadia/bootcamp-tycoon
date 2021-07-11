@@ -1,8 +1,8 @@
 <script lang="ts">
-import type { TStateStats } from "../../../core/src/types/state";
+import type { TReport } from "../../../core/src/utils/stateReportBuilder";
 
 
-export let stats: TStateStats;
+export let report: TReport;
 
 </script>
 
@@ -10,9 +10,9 @@ export let stats: TStateStats;
   <div>
     <h1>Stats</h1>
 
-    <div>Name: {stats.name}</div>
-    <div title={`Max: ${stats.resources.energy.max}`}>Energy: {stats.resources.energy.curr}</div>
-    <div title="Max: 100.00%">Coding Skill: {stats.skills.coding}</div>
-    <div>Time: {stats.time}</div>
+    <div>Name: {report.name}</div>
+    <div title={`Max: ${report.resources.energy.max}`}>Energy: {report.resources.energy.curr}</div>
+    <div title="Max: 100.00%">Coding Skill: {report.skills.coding}</div>
+    <div>Time: {report.time}</div>
   </div>
 </div>

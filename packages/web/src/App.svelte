@@ -3,23 +3,23 @@
   import Player from "./components/Player.svelte";
   import startBootcampTycoon from "../../core/src/index";
   import type { TStateStats } from "../../core/src/types/state";
+  import type { TReport } from "../../core/src/utils/stateReportBuilder";
   
   const core = startBootcampTycoon({
     fullName: "Monarch Wadia"
   });
   
-  let stats: TStateStats = core.getStats();
+  let report: TReport = core.getReport();
   core.onUpdate(() => {
-    const newStats = core.getStats();
-    console.log(stats === newStats, newStats.skills.coding)
-    stats = newStats;
+    const newStats = core.getReport();
+    report = newStats;
   })
 </script>
 
 <main>
   <div>
     <Actions core={core}/>
-    <Player stats={stats} />
+    <Player report={report} />
   </div>
 </main>
 

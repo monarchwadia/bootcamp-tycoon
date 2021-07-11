@@ -28,7 +28,7 @@ export default class BootcampTycoon {
     return this.actionManager.getAvailableActions();
   }
 
-  getStats() {
+  getReport() {
     return this.state.getReport();
   }
 

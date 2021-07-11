@@ -35,4 +35,5 @@ const stateReportBuilder = (data: TStateData) => {
   };
 };
 
+export type TReport = ReturnType<typeof stateReportBuilder>;
 export default stateReportBuilder;

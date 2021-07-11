@@ -1,7 +1,7 @@
 import { BootcampTycoon } from '../../src';
 import { defaultGame, DEFAULT_FULL_NAME } from '../helpers';
 
-describe('getStats', () => {
+describe('getReport', () => {
   let game: BootcampTycoon;
 
   beforeEach(() => {
@@ -9,7 +9,7 @@ describe('getStats', () => {
   });
 
   it('reports name', () => {
-    const stats = game.getStats();
+    const stats = game.getReport();
     expect(stats.name).toStrictEqual(DEFAULT_FULL_NAME);
   });
 
@@ -17,7 +17,7 @@ describe('getStats', () => {
     const testReport = (val: number, exp: string) => {
       it(`reports ${val} as ${exp}`, () => {
         game.state.data.player.resources.energy.curr = val;
-        const stats = game.getStats();
+        const stats = game.getReport();
         expect(stats.resources.energy.curr).toStrictEqual(exp);
       });
     };
@@ -33,7 +33,7 @@ describe('getStats', () => {
   });
 
   it('reports coding skill as a percentage', () => {
-    const stats = game.getStats();
+    const stats = game.getReport();
     expect(stats.skills.coding).toStrictEqual('0.00%');
   });
 });
