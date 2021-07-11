@@ -7,7 +7,17 @@ const percent = (num: number) =>
     maximumFractionDigits: 2,
   }).format(num / 10000);
 
-const timestamp = (time: number) => Intl.DateTimeFormat('en', {}).format(time);
+const timestamp = (time: number) =>
+  Intl.DateTimeFormat('en', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour12: true,
+    hourCycle: 'h12',
+    hour: 'numeric',
+    minute: 'numeric',
+  }).format(time);
 
 const stateReportBuilder = (data: TStateData) => {
   return {

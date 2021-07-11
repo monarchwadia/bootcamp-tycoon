@@ -17,10 +17,13 @@ export type TStateData = {
 export type TStateStats = {
   name: string;
   resources: {
-    energy: number;
+    energy: {
+      curr: string;
+      max: string;
+    };
   };
   skills: {
-    coding: number;
+    coding: string;
   };
   time: number;
 };

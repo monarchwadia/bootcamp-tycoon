@@ -11,8 +11,8 @@ export let stats: TStateStats;
     <h1>Stats</h1>
 
     <div>Name: {stats.name}</div>
-    <div>Energy: {stats.resources.energy}</div>
-    <div>Coding Skill: {stats.skills.coding}</div>
+    <div title={`Max: ${stats.resources.energy.max}`}>Energy: {stats.resources.energy.curr}</div>
+    <div title="Max: 100.00%">Coding Skill: {stats.skills.coding}</div>
     <div>Time: {stats.time}</div>
   </div>
 </div>
